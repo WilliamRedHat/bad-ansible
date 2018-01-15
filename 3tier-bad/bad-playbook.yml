@@ -13,10 +13,10 @@
 #   Bare variables
 #   No use of handlers
 
-- name: configuration
+- name: Yum repository configuration
   hosts: all
   gather_facts: false # remove later! speeds up testing
-  become: true
+#  become: true
 
   tasks:
   - name: enable repos
@@ -25,10 +25,11 @@
       dest: /etc/yum.repos.d/open_three-tier-app.repo
       mode: 0644
 
+## Deploy HAproxy on frontends.
 - name: deploy haproxy
   hosts: frontends
   gather_facts: false # remove later! speeds up testing
-  become: true
+#  become: true
 
   tasks:
   - name: http
@@ -55,7 +56,7 @@
 - name: deploy tomcat
   hosts: apps
   gather_facts: false
-  become: true
+#  become: true
 
   tasks:
   - name: install tomcat
@@ -86,7 +87,7 @@
 - name: index.html on app 1
   hosts: app1
   gather_facts: false
-  become: true
+#  become: true
 
   tasks:
   - name: copy static index.html to tomcat webapps/ansible/index.html
@@ -97,7 +98,7 @@
 - name: index.html on app 1
   hosts: app2
   gather_facts: false
-  become: true
+#  become: true
 
   tasks:
   - name: copy static index.html to tomcat webapps/ansible/index.html
@@ -108,8 +109,8 @@
 - name: deploy postgres
   hosts: apps
   gather_facts: false
-  become: true
-  hosts: appdbs
+#   become: true
+#   hosts: appdbs
   tasks:
   - name: install progress
     command: "yum install -y postgresql-server"
@@ -139,7 +140,7 @@
 - name: deploy apache
   hosts: apps
   gather_facts: false
-  become: true
+#   become: true
   hosts: apps
   tasks:
   - name: install apache
