@@ -2,6 +2,10 @@
 - hosts: all
   gather_facts: false
   roles:
-    - config.roles
+    - config.role
+
+- hosts: frontends
+  roles:
+    - haproxy.role
 
 - include: bad-playbook.yml
