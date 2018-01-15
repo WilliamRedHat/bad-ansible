@@ -1,0 +1,6 @@
+---
+- hosts: all
+  roles:
+    - config.roles
+
+- include: bad-playbook.yml
