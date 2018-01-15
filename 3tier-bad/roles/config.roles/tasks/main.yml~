@@ -1,8 +1,6 @@
 ---
 # tasks file for config.roles
 - name: Yum repository configuration
-  hosts: all
-
   tasks:
   - name: enable repos
     template:

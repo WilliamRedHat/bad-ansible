@@ -1,9 +1,9 @@
 ---
-# tasks file for config.roles
-- name: Yum repository configuration
+- hosts: all
+  name: Yum repository configuration
   tasks:
-  - name: enable repos
-    template:
-      src: files/open_three-tier-app.repo
-      dest: /etc/yum.repos.d/open_three-tier-app.repo
-      mode: 0644
+    - name: enable repos
+      template:
+        src: files/open_three-tier-app.repo
+        dest: /etc/yum.repos.d/open_three-tier-app.repo
+        mode: 0644
