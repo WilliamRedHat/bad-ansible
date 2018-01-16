@@ -1,0 +1,13 @@
+---
+- name: Install httpd packages
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - httpd
+
+- name: Enable httpd at boot
+  service:
+    name: httpd
+    state: started
+    enabled: yes

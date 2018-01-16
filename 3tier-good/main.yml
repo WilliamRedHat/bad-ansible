@@ -11,5 +11,7 @@
 - hosts: apps
   roles:
     - tomcat.role
+    - httpd.role
+    - postgresql.role
 
-- include: bad-playbook.yml
+# - include: bad-playbook.yml
