@@ -11,7 +11,7 @@
   service:
     name: haproxy
     state: started
-    enable: yes
+    enabled: yes
 
 - name: Copy HA Proxy config file
   template:
