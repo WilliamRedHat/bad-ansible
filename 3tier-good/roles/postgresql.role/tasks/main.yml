@@ -9,12 +9,6 @@
     - postgresql-contrib
     - postgresql-libs
 
-- name: Enable postgresql at boot
-  service:
-    name: postgresql
-    state: started
-    enabled: yes
-
 - name: Ensure PostgreSQL data directory exists.
   file:
     path: "{{ postgresql_data_dir }}"
@@ -33,3 +27,10 @@
   when: not pgdata_dir_version.stat.exists
   become: yes
   become_user: "{{ postgresql_user }}"
+
+- name: Enable postgresql at boot
+  service:
+    name: postgresql
+    state: started
+    enabled: yes
+
