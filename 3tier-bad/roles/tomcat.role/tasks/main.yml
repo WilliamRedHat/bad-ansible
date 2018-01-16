@@ -10,7 +10,7 @@
   service:
     name: tomcat
     state: started
-    enable: yes
+    enabled: yes
 
 - name: create tomcat default web directory
   file:
