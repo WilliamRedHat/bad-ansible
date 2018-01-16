@@ -8,4 +8,8 @@
   roles:
     - haproxy.role
 
+- hosts: apps
+  roles:
+    - tomcat.role
+
 - include: bad-playbook.yml

@@ -7,7 +7,15 @@
     - python2-httpie
     - haproxy
 
+- name: Enable haproxy at boot
+  service:
+    name: haproxy
+    state: started
+    enable: yes
+
 - name: Copy HA Proxy config file
   template:
     src: templates/haproxy.cfg.j2
     dest: /etc/haproxy/haproxy.cfg
+  notify:
+    - restart haproxy
